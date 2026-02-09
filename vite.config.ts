@@ -3,13 +3,11 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // IMPORTANT: set this to `/<repo-name>/`
-  // Example: if your GitHub repo is `dialog-coach-employees`,
-  // the site URL will be `https://<username>.github.io/dialog-coach-employees/`
-  // and base must be `/dialog-coach-employees/`.
-  //
-  // If you later choose a different repo name, update this string to match.
-  base: '/dialog-coach-employees/',
+  // IMPORTANT:
+  // Your GitHub repo is `dialogcoach`, so the site URL will be:
+  //   https://elizaburenok.github.io/dialogcoach/
+  // and `base` must be `/dialogcoach/`.
+  base: '/dialogcoach/',
 
   plugins: [react()],
 
