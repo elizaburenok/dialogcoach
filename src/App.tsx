@@ -183,14 +183,14 @@ export function App() {
             label={
               selectedCoach.isSelf
                 ? 'Ты смотришь своих сотрудников'
-                : undefined
+                : 'Ты смотришь сотрудников другого диалог-коуча'
             }
           >
             {coachDisplayName}
           </Cell>
           {selectedCoach.id !== 'coach-1' && (
             <Button
-              type="Transparent"
+              type="BrandSubtle"
               size="S"
               className="widget__reset-button"
               onClick={handleResetCoach}

@@ -35,4 +35,13 @@
 .widget__content {
   display: flex;
   flex-direction: column;
+  gap: 15px;
+  padding: 10px 20px 20px;
+}
+
+/* Full-width reset button (Figma: matches widget width with padding) */
+.widget__reset-button {
+  width: 105px;
+  height: 32px;
+  align-self: flex-start;
 }

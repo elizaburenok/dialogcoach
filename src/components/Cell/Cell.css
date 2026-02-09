@@ -19,7 +19,7 @@
 
 /* Size M - Will be defined when M variant is analyzed */
 .cell--size-M {
-  padding: 10px 20px 25px 20px;
+  padding: 10px 0 0 0;
 }
 
 /* Size L - Will be defined when L variant is analyzed */
@@ -121,7 +121,7 @@
   color: var(--color-primitive-secondary, #676767);
   font-style: normal;
   font-weight: 400;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 /* Size S, M, L - Subtitle and Label */

@@ -2,7 +2,7 @@ import React from 'react';
 import { typography } from '../../tokens';
 import './Button.css';
 
-export type ButtonType = 'Primary' | 'Secondary' | 'Transparent' | 'White';
+export type ButtonType = 'Primary' | 'Secondary' | 'Transparent' | 'White' | 'BrandSubtle';
 export type ButtonState = 'Default' | 'Hovered' | 'Disabled' | 'Loading';
 export type ButtonSize = 'M' | 'S';
 
@@ -96,6 +96,7 @@ function getSpinnerColor(type: ButtonType): string {
     case 'Secondary':
     case 'Transparent':
     case 'White':
+    case 'BrandSubtle':
       return 'var(--color-primitive-brand, #835de1)';
     default:
       return 'var(--color-primitive-brand, #835de1)';

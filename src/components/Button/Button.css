@@ -86,6 +86,23 @@
   color: var(--color-primitive-neutral-4, #949494);
 }
 
+/* BrandSubtle Type (Figma: Bg/Brand 1, pill-like reset button) */
+.button--type-brandsubtle {
+  background-color: var(--color-bg-brand-1, #efedf8);
+  color: var(--color-primitive-primary, #191919);
+  border-radius: 10px;
+}
+
+.button--type-brandsubtle:not(:disabled):hover,
+.button--type-brandsubtle.button--state-hovered {
+  background-color: var(--color-bg-brand-2, #e2ddf6);
+}
+
+.button--type-brandsubtle.button--state-disabled {
+  background-color: var(--color-container-transparent-1, rgba(25, 25, 25, 0.05));
+  color: var(--color-primitive-neutral-4, #949494);
+}
+
 /* Label */
 .button__label {
   white-space: nowrap;
