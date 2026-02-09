@@ -134,6 +134,7 @@ export function App() {
           <ContextualNotification
             countWithoutCycle={employeesWithoutCycleCount}
             onOpenAssignModal={handleOpenEmployeesModal}
+            showActionButton={selectedCoach.id === 'coach-1'}
           />
         </div>
 

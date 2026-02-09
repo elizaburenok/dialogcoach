@@ -39,9 +39,12 @@
   padding: 10px 20px 20px;
 }
 
-/* Full-width reset button (Figma: matches widget width with padding) */
-.widget__reset-button {
+/* Full-width reset button (Figma: matches widget width with padding).
+   Selector specificity (0,2,0) ensures this overrides .button (0,1,0) regardless of load order. */
+.widget__content .widget__reset-button {
   width: 105px;
-  height: 32px;
+  height: fit-content;
+  padding-top: 6px;
+  padding-bottom: 6px;
   align-self: flex-start;
 }

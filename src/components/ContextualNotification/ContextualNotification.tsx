@@ -6,6 +6,8 @@ export interface ContextualNotificationProps {
   countWithoutCycle: number;
   /** Called when user wants to resolve missing cycles (opens modal on parent page) */
   onOpenAssignModal: () => void;
+  /** When false, the action button is hidden (e.g. when viewing another coach's list) */
+  showActionButton?: boolean;
   /** Additional CSS class name */
   className?: string;
   /** HTML data attributes */
@@ -27,7 +29,7 @@ function formatEmployeesWithoutCycle(count: number): string {
 }
 
 export const ContextualNotification: React.FC<ContextualNotificationProps> = (props) => {
-  const { countWithoutCycle, onOpenAssignModal, className, 'data-testid': dataTestId } = props;
+  const { countWithoutCycle, onOpenAssignModal, showActionButton = true, className, 'data-testid': dataTestId } = props;
 
   if (countWithoutCycle <= 0) {
     return null;
@@ -79,13 +81,15 @@ export const ContextualNotification: React.FC<ContextualNotificationProps> = (pr
         </div>
       </div>
 
-      <button
-        type="button"
-        className="contextual-notification__action"
-        onClick={onOpenAssignModal}
-      >
-        Перейти к сотрудникам
-      </button>
+      {showActionButton && (
+        <button
+          type="button"
+          className="contextual-notification__action"
+          onClick={onOpenAssignModal}
+        >
+          Перейти к сотрудникам
+        </button>
+      )}
     </section>
   );
 };
