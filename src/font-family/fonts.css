@@ -1,0 +1,50 @@
+/* TT Norms Tochka Extended – core weights used in the design system */
+
+@font-face {
+  font-family: "TT Norms Tochka Extended";
+  src: url("./TT_Norms_Pro_Tochka_Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Norms Tochka Extended";
+  src: url("./TT_Norms_Pro_Tochka_Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Norms Tochka Extended";
+  src: url("./TT_Norms_Pro_Tochka_Medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Norms Tochka Extended";
+  src: url("./TT_Norms_Pro_Tochka_Medium_Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Norms Tochka Extended";
+  src: url("./TT_Norms_Pro_Tochka_DemiBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Norms Tochka Extended";
+  src: url("./TT_Norms_Pro_Tochka_DemiBold_Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+}
+

@@ -1,0 +1,76 @@
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770638139433}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770638139434}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638139461}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638139461}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770638143738}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770638143739}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638143761}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638143761}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638143857}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770638143895}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770638143895}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638143898}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638143898}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770638825764}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770638825765}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638825786}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638825786}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638915649}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638915649}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638915649}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770638915650}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770639411182}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770639411183}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770639411187}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770639411187}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770639411219}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770639411220}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770639411231}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770639411231}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770640812899}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770640812900}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770640812909}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770640812909}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770640925357}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770640925362}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770641459503}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770641459504}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770641459515}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770641459515}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770642393078}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770642393079}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642393088}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642393088}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642757909}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642758351}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642801233}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642801234}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642801350}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642801351}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770642830490}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770642830489}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642830500}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642830500}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770642830592}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770642830594}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642830604}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770642830604}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":3,"coach":{"id":"coach-2","isSelf":false}},"timestamp":1770644572904}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770644575757}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770644709314}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770644709315}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770644709325}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770644709325}
+{"runId":"pre-fix","hypothesisId":"H1","location":"src/main.tsx:12","message":"main entry and root lookup","data":{"rootExists":true},"timestamp":1770644709367}
+{"runId":"pre-fix","hypothesisId":"H3","location":"src/main.tsx:42","message":"React root render succeeded","data":{},"timestamp":1770644709368}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770644709379}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770644709379}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770644975086}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770644976083}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":3,"coach":{"id":"coach-2","isSelf":false}},"timestamp":1770644998280}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":3,"coach":{"id":"coach-2","isSelf":false}},"timestamp":1770645080080}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770645080082}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":3,"coach":{"id":"coach-2","isSelf":false}},"timestamp":1770645386619}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770645387087}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":3,"coach":{"id":"coach-2","isSelf":false}},"timestamp":1770645390251}
+{"runId":"pre-fix","hypothesisId":"H4","location":"src/App.tsx:25","message":"App mounted with initial state","data":{"employeesCount":5,"coach":{"id":"coach-1","isSelf":true}},"timestamp":1770645391083}

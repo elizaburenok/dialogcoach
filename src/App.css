@@ -1,0 +1,73 @@
+/**
+ * Page Layout Styles
+ * 3-column layout: NavigationBar | Content | Right Widgets
+ */
+
+.page {
+  display: inline-flex;
+  height: 900px;
+  flex-direction: column;
+  align-items: center;
+  width: 1440px;
+  font-family: var(--font-family-primary);
+  background-color: var(--color-page-primary, #ffffff);
+  position: relative;
+}
+
+/* Inner 3-column row that fills the page */
+.page > * {
+  /* Override column to display as a row */
+}
+
+/* We use position-based layout to match the Figma structure */
+.page {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* ── Left Column: NavigationBar ── */
+.page__left {
+  width: 280px;
+  min-width: 280px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+/* ── Center Column: Filters + Employee List ── */
+.page__center {
+  width: 720px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 72px;
+  margin-left: 80px;
+}
+
+.page__notification {
+  padding: 0 20px 20px 20px;
+}
+
+.page__filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px 30px 20px;
+}
+
+.page__list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ── Right Column: Widgets ── */
+.page__right {
+  width: 340px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 74px 0 0 20px;
+}
