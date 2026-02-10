@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { NavigationBar } from './components/NavigationBar';
 import { Chip } from './components/Chip';
 import { Cell } from './components/Cell';
+import { Dropdown, type DropdownItem } from './components/Dropdown';
 import { PageAction } from './components/PageAction';
 import { EmployeeCell } from './components/EmployeeCell';
 import { SegmentBar } from './components/SegmentBar';
@@ -58,7 +59,7 @@ function generateSyntheticEmployeesForCoach(
     'Дмитриевна',
   ];
   const avatarColors = ['#e59594', '#95aee2', '#de9c7e', '#82bad4', '#d796c1'];
-  const roles = ['Специалист', 'Эксперт'];
+  const roles = ['Дайвер', 'Специалист', 'Эксперт'];
   const channelsOptions: string[][] = [
     ['Blocks', '[Команда]', 'Чат'],
     ['Blocks', '[Команда]', 'Чат + телефон'],
@@ -116,6 +117,10 @@ export function App() {
   const [isEmployeesModalOpen, setIsEmployeesModalOpen] = useState(false);
   const [isCoachModalOpen, setIsCoachModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isRoleDropdownOpen, setIsRoleDropdownOpen] = useState(false);
+  const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
+  const [isFocusDropdownOpen, setIsFocusDropdownOpen] = useState(false);
+  const [selectedFocuses, setSelectedFocuses] = useState<string[]>([]);
 
   // #region agent log
   useEffect(() => {
@@ -161,6 +166,48 @@ export function App() {
 
   const employeesWithoutCycleCount = employeesWithoutCycle.length;
 
+  // All available roles for current coach employees
+  const availableRoles = useMemo(() => {
+    const rolesSet = new Set<string>();
+
+    // Always include base roles from design
+    rolesSet.add('Дайвер');
+    rolesSet.add('Специалист');
+    rolesSet.add('Эксперт');
+
+    employees.forEach((employee) => {
+      if (employee.role) {
+        rolesSet.add(employee.role);
+      }
+    });
+    return Array.from(rolesSet);
+  }, [employees]);
+
+  // Dropdown items for role filter (Cell M with right checkbox)
+  const roleDropdownItems: DropdownItem[] = useMemo(
+    () =>
+      availableRoles.map((role) => ({
+        id: role,
+        label: role,
+        checked: selectedRoles.includes(role),
+      })),
+    [availableRoles, selectedRoles]
+  );
+
+  // Static list of focuses for communication channels
+  const focusOptions = ['Чат', 'Телефон', 'Чат + телефон'];
+
+  // Dropdown items for focus filter (Cell M with right checkbox)
+  const focusDropdownItems: DropdownItem[] = useMemo(
+    () =>
+      focusOptions.map((focus) => ({
+        id: focus,
+        label: focus,
+        checked: selectedFocuses.includes(focus),
+      })),
+    [focusOptions, selectedFocuses]
+  );
+
   const nameFilteredEmployees = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
 
@@ -174,10 +221,54 @@ export function App() {
     });
   }, [sortedEmployees, searchQuery]);
 
+  // Filter by selected roles from dropdown
+  const roleFilteredEmployees = useMemo(
+    () => {
+      if (!selectedRoles.length) {
+        return nameFilteredEmployees;
+      }
+
+      return nameFilteredEmployees.filter((employee) =>
+        selectedRoles.includes(employee.role)
+      );
+    },
+    [nameFilteredEmployees, selectedRoles]
+  );
+
   // Only show employees with an active cycle in the list
   const visibleEmployees = useMemo(
-    () => nameFilteredEmployees.filter((employee) => employee.cycle !== 'noCycle'),
-    [nameFilteredEmployees]
+    () => {
+      // First, apply focus filter based on communication channels
+      const focusFiltered = (() => {
+        if (!selectedFocuses.length) {
+          return roleFilteredEmployees;
+        }
+
+        return roleFilteredEmployees.filter((employee) => {
+          const hasChat =
+            employee.channels.includes('Чат') ||
+            employee.channels.includes('Чат + телефон');
+          const hasPhone = employee.channels.includes('Чат + телефон');
+
+          return selectedFocuses.some((focus) => {
+            if (focus === 'Чат') {
+              return hasChat;
+            }
+            if (focus === 'Телефон') {
+              return hasPhone;
+            }
+            if (focus === 'Чат + телефон') {
+              return employee.channels.includes('Чат + телефон');
+            }
+            return false;
+          });
+        });
+      })();
+
+      // Then, keep only employees with an active cycle
+      return focusFiltered.filter((employee) => employee.cycle !== 'noCycle');
+    },
+    [roleFilteredEmployees, selectedFocuses]
   );
 
   const coachDisplayName = `${selectedCoach.lastName}\n${selectedCoach.firstName}`;
@@ -224,6 +315,79 @@ export function App() {
         employee.id === employeeId ? { ...employee, cycle: 'weekly' } : employee
       )
     );
+  };
+
+  const hasRoleFilter = selectedRoles.length > 0;
+
+  const roleChipLabel = useMemo(() => {
+    if (!selectedRoles.length) {
+      return 'Роль';
+    }
+
+    if (selectedRoles.length === 1) {
+      return selectedRoles[0];
+    }
+
+    // As per example: "2 роли", "3 роли", etc.
+    return `${selectedRoles.length} роли`;
+  }, [selectedRoles]);
+  const hasFocusFilter = selectedFocuses.length > 0;
+
+  const focusChipLabel = useMemo(() => {
+    if (!selectedFocuses.length) {
+      return 'Фокус';
+    }
+
+    if (selectedFocuses.length === 1) {
+      return selectedFocuses[0];
+    }
+
+    // For multiple focuses: "2 фокуса", "3 фокуса", etc.
+    return `${selectedFocuses.length} фокуса`;
+  }, [selectedFocuses]);
+
+  const handleToggleRoleDropdown = () => {
+    setIsRoleDropdownOpen((prev) => !prev);
+  };
+
+  const handleCloseRoleDropdown = () => {
+    setIsRoleDropdownOpen(false);
+  };
+
+  const handleResetRoleFilter = () => {
+    setSelectedRoles([]);
+    setIsRoleDropdownOpen(false);
+  };
+
+  const handleSelectRoleItem = (item: DropdownItem) => {
+    setSelectedRoles((prev) => {
+      if (prev.includes(item.label)) {
+        return prev.filter((role) => role !== item.label);
+      }
+      return [...prev, item.label];
+    });
+  };
+
+  const handleToggleFocusDropdown = () => {
+    setIsFocusDropdownOpen((prev) => !prev);
+  };
+
+  const handleCloseFocusDropdown = () => {
+    setIsFocusDropdownOpen(false);
+  };
+
+  const handleResetFocusFilter = () => {
+    setSelectedFocuses([]);
+    setIsFocusDropdownOpen(false);
+  };
+
+  const handleSelectFocusItem = (item: DropdownItem) => {
+    setSelectedFocuses((prev) => {
+      if (prev.includes(item.label)) {
+        return prev.filter((focus) => focus !== item.label);
+      }
+      return [...prev, item.label];
+    });
   };
 
   return (
@@ -284,8 +448,50 @@ export function App() {
 
         {/* Filter Chips */}
         <div className="page__filters">
-          <Chip variant="dropdown" label="Роль" />
-          <Chip variant="dropdown" label="Фокус" />
+          <div className="page__filter">
+            <Chip
+              variant="dropdown"
+              label={roleChipLabel}
+              selected={hasRoleFilter}
+              dropdownOpen={isRoleDropdownOpen}
+              showResetIcon={hasRoleFilter}
+              onClick={handleToggleRoleDropdown}
+              onReset={handleResetRoleFilter}
+            />
+            {isRoleDropdownOpen && (
+              <Dropdown
+                type="list"
+                mode="desktop"
+                items={roleDropdownItems}
+                open={isRoleDropdownOpen}
+                showCheckbox
+                onSelect={handleSelectRoleItem}
+                onClose={handleCloseRoleDropdown}
+              />
+            )}
+          </div>
+          <div className="page__filter">
+            <Chip
+              variant="dropdown"
+              label={focusChipLabel}
+              selected={hasFocusFilter}
+              dropdownOpen={isFocusDropdownOpen}
+              showResetIcon={hasFocusFilter}
+              onClick={handleToggleFocusDropdown}
+              onReset={handleResetFocusFilter}
+            />
+            {isFocusDropdownOpen && (
+              <Dropdown
+                type="list"
+                mode="desktop"
+                items={focusDropdownItems}
+                open={isFocusDropdownOpen}
+                showCheckbox
+                onSelect={handleSelectFocusItem}
+                onClose={handleCloseFocusDropdown}
+              />
+            )}
+          </div>
         </div>
 
         {/* Employee List */}
