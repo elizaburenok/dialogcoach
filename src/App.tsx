@@ -58,6 +58,7 @@ function generateSyntheticEmployeesForCoach(
     'Дмитриевна',
   ];
   const avatarColors = ['#e59594', '#95aee2', '#de9c7e', '#82bad4', '#d796c1'];
+  const roles = ['Специалист', 'Эксперт'];
   const channelsOptions: string[][] = [
     ['Blocks', '[Команда]', 'Чат'],
     ['Blocks', '[Команда]', 'Чат + телефон'],
@@ -77,6 +78,7 @@ function generateSyntheticEmployeesForCoach(
     const channels =
       channelsOptions[Math.floor(Math.random() * channelsOptions.length)];
     const cycle = cycles[index % cycles.length];
+    const role = roles[Math.floor(Math.random() * roles.length)];
 
     // Spread meetings roughly across the month after the earliest meeting
     const offsetDays = 1 + ((index * 3) % 28);
@@ -96,7 +98,7 @@ function generateSyntheticEmployeesForCoach(
       patronymic,
       initials,
       avatarColor,
-      role: 'Дайвер',
+      role,
       channels,
       nextMeetingDate,
       cycle,
@@ -345,7 +347,7 @@ export function App() {
 
         {/* Page Action */}
         <PageAction
-          title="Все мои активности"
+          title="Показать все активности"
           description="Посмотреть загрузку"
           iconLeft={
             <svg
