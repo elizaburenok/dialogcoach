@@ -10,7 +10,14 @@ import { ContextualNotification } from './components/ContextualNotification';
 import { EmployeesWithoutCycleModal } from './components/EmployeesWithoutCycleModal';
 import { CoachSelectorModal } from './components/CoachSelectorModal';
 import { Button } from './components/Button';
-import { coachEmployeesMap, mockEmployees, mockCoaches } from './data/employees';
+import { SearchInput } from './components/SearchInput';
+import {
+  coachEmployeesMap,
+  mockEmployees,
+  mockCoaches,
+  type Employee,
+  type MeetingCycle,
+} from './data/employees';
 import './App.css';
 
 function formatMeetingDateShort(date: Date): string {
@@ -20,6 +27,85 @@ function formatMeetingDateShort(date: Date): string {
   }).format(date);
 }
 
+/**
+ * Generate synthetic employees for demonstration purposes.
+ * Used only for coach "Константинопольский Александр" (coach-1).
+ */
+function generateSyntheticEmployeesForCoach(
+  baseEmployees: Employee[],
+  count: number
+): Employee[] {
+  if (!baseEmployees.length || count <= 0) {
+    return [];
+  }
+
+  const existingIds = new Set(baseEmployees.map((employee) => employee.id));
+
+  const baseDate = baseEmployees.reduce((min, employee) => {
+    return employee.nextMeetingDate.getTime() < min.getTime()
+      ? employee.nextMeetingDate
+      : min;
+  }, baseEmployees[0].nextMeetingDate);
+
+  const cycles: MeetingCycle[] = ['weekly', 'biweekly', 'monthly'];
+  const firstNames = ['Олег', 'Наталья', 'Фёдор', 'Софья', 'Роман', 'Елена'];
+  const lastNames = ['Александров', 'Борисова', 'Карпов', 'Лебедев', 'Орлова'];
+  const patronymics = [
+    'Игоревич',
+    'Алексеевна',
+    'Павлович',
+    'Сергеевна',
+    'Дмитриевна',
+  ];
+  const avatarColors = ['#e59594', '#95aee2', '#de9c7e', '#82bad4', '#d796c1'];
+  const channelsOptions: string[][] = [
+    ['Blocks', '[Команда]', 'Чат'],
+    ['Blocks', '[Команда]', 'Чат + телефон'],
+  ];
+
+  const syntheticEmployees: Employee[] = [];
+
+  for (let index = 0; index < count; index++) {
+    const firstName =
+      firstNames[Math.floor(Math.random() * firstNames.length)];
+    const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+    const patronymic =
+      patronymics[Math.floor(Math.random() * patronymics.length)];
+    const initials = `${lastName[0] ?? ''}${firstName[0] ?? ''}`;
+    const avatarColor =
+      avatarColors[Math.floor(Math.random() * avatarColors.length)];
+    const channels =
+      channelsOptions[Math.floor(Math.random() * channelsOptions.length)];
+    const cycle = cycles[index % cycles.length];
+
+    // Spread meetings roughly across the month after the earliest meeting
+    const offsetDays = 1 + ((index * 3) % 28);
+    const nextMeetingDate = new Date(baseDate);
+    nextMeetingDate.setDate(baseDate.getDate() + offsetDays);
+
+    let id = `synthetic-${index + 1}`;
+    while (existingIds.has(id)) {
+      id = `synthetic-${id}`;
+    }
+    existingIds.add(id);
+
+    syntheticEmployees.push({
+      id,
+      firstName,
+      lastName,
+      patronymic,
+      initials,
+      avatarColor,
+      role: 'Дайвер',
+      channels,
+      nextMeetingDate,
+      cycle,
+    });
+  }
+
+  return syntheticEmployees;
+}
+
 export function App() {
   const [selectedCoach, setSelectedCoach] = useState(mockCoaches[0]);
   const [employees, setEmployees] = useState(
@@ -27,6 +113,7 @@ export function App() {
   );
   const [isEmployeesModalOpen, setIsEmployeesModalOpen] = useState(false);
   const [isCoachModalOpen, setIsCoachModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   // #region agent log
   useEffect(() => {
@@ -48,14 +135,22 @@ export function App() {
   }, [employees.length, selectedCoach.id, selectedCoach.isSelf]);
   // #endregion
 
-  // Employees sorted by next meeting date (soonest first)
-  const sortedEmployees = useMemo(
-    () =>
-      [...employees].sort(
-        (a, b) => a.nextMeetingDate.getTime() - b.nextMeetingDate.getTime()
-      ),
-    [employees]
-  );
+  // Employees (including synthetic demo employees for coach-1) sorted by next meeting date (soonest first)
+  const sortedEmployees = useMemo(() => {
+    let extendedEmployees: Employee[] = employees;
+
+    if (selectedCoach.id === 'coach-1') {
+      const syntheticEmployees = generateSyntheticEmployeesForCoach(
+        employees,
+        10
+      );
+      extendedEmployees = [...employees, ...syntheticEmployees];
+    }
+
+    return [...extendedEmployees].sort(
+      (a, b) => a.nextMeetingDate.getTime() - b.nextMeetingDate.getTime()
+    );
+  }, [employees, selectedCoach.id]);
 
   const employeesWithoutCycle = useMemo(
     () => employees.filter((employee) => employee.cycle === 'noCycle'),
@@ -64,10 +159,23 @@ export function App() {
 
   const employeesWithoutCycleCount = employeesWithoutCycle.length;
 
+  const nameFilteredEmployees = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+
+    if (!query) {
+      return sortedEmployees;
+    }
+
+    return sortedEmployees.filter((employee) => {
+      const fullName = `${employee.lastName} ${employee.firstName} ${employee.patronymic ?? ''}`.toLowerCase();
+      return fullName.includes(query);
+    });
+  }, [sortedEmployees, searchQuery]);
+
   // Only show employees with an active cycle in the list
   const visibleEmployees = useMemo(
-    () => sortedEmployees.filter((employee) => employee.cycle !== 'noCycle'),
-    [sortedEmployees]
+    () => nameFilteredEmployees.filter((employee) => employee.cycle !== 'noCycle'),
+    [nameFilteredEmployees]
   );
 
   const coachDisplayName = `${selectedCoach.lastName}\n${selectedCoach.firstName}`;
@@ -135,6 +243,40 @@ export function App() {
             countWithoutCycle={employeesWithoutCycleCount}
             onOpenAssignModal={handleOpenEmployeesModal}
             showActionButton={selectedCoach.id === 'coach-1'}
+          />
+        </div>
+
+        {/* Search Input */}
+        <div className="page__search">
+          <SearchInput
+            size="m"
+            variant="filled"
+            placeholder="Поиск по имени"
+            value={searchQuery}
+            onValueChange={setSearchQuery}
+            iconLeft={
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="8"
+                  cy="8"
+                  r="5.25"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+                <path
+                  d="M12.5 12.5L15 15"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            }
           />
         </div>
 

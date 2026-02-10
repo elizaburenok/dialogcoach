@@ -48,6 +48,11 @@
   padding: 0 20px 20px 20px;
 }
 
+.page__search {
+  padding: 0 20px;
+  margin-bottom: var(--space-15, 15px);
+}
+
 .page__filters {
   display: flex;
   flex-direction: row;
