@@ -16,6 +16,15 @@
   border-bottom: none;
 }
 
+/* Hover state for employee rows in the list */
+.employee-cell:hover {
+  border-radius: var(--rounding-2-5x, 10px);
+  background-color: var(
+    --color-container-transparent-1,
+    rgba(25, 25, 25, 0.05)
+  );
+}
+
 /* Override default Cell size L padding for employee cell instances */
 .employee-cell.cell--size-L {
   padding-left: 20px;
