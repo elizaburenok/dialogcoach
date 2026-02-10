@@ -195,6 +195,16 @@
   flex-shrink: 0;
 }
 
+.employees-modal__planned-date {
+  padding-bottom: 10px;
+  color: var(--Primitive-Secondary, #676767);
+  text-align: center;
+  font-family: var(--font-family-primary);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
 .employees-modal__confirm-button {
   width: 100%;
 }

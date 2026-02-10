@@ -26,6 +26,12 @@ const Radio: React.FC<{ checked?: boolean }> = ({ checked = false }) => (
 export const EmployeesWithoutCycleModal: React.FC<EmployeesWithoutCycleModalProps> = (props) => {
   const { open, employees, onClose, onConfirm } = props;
 
+  const formatMeetingDateShort = (date: Date): string =>
+    new Intl.DateTimeFormat('ru-RU', {
+      day: 'numeric',
+      month: 'long',
+    }).format(date);
+
   const [selectedEmployeeId, setSelectedEmployeeId] = useState<string | null>(null);
   const [validationError, setValidationError] = useState<string | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
@@ -66,6 +72,11 @@ export const EmployeesWithoutCycleModal: React.FC<EmployeesWithoutCycleModalProp
   if (!open) {
     return null;
   }
+
+  const selectedEmployee =
+    selectedEmployeeId != null
+      ? employees.find((employee) => employee.id === selectedEmployeeId) ?? null
+      : null;
 
   const handleEmployeeSelect = (employeeId: string) => {
     setSelectedEmployeeId(employeeId);
@@ -128,7 +139,7 @@ export const EmployeesWithoutCycleModal: React.FC<EmployeesWithoutCycleModalProp
           <div className="employees-modal__list" role="radiogroup">
             {hasEmployees ? (
               employees.map((employee) => {
-                const fullName = `${employee.lastName} ${employee.firstName}`;
+                const fullName = `${employee.lastName} ${employee.firstName}${employee.patronymic ? ` ${employee.patronymic}` : ''}`;
                 const teamAndFocus = employee.channels.join(' · ');
 
                 return (
@@ -164,6 +175,13 @@ export const EmployeesWithoutCycleModal: React.FC<EmployeesWithoutCycleModalProp
         </div>
 
         <div className="employees-modal__footer">
+          {selectedEmployee && (
+            <div className="employees-modal__planned-date">
+              {`Плановая дата — ${formatMeetingDateShort(
+                selectedEmployee.nextMeetingDate
+              )}.`}
+            </div>
+          )}
           {validationError && (
             <div className="employees-modal__validation" role="alert">
               {validationError}
