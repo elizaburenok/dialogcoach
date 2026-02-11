@@ -98,14 +98,14 @@ export const mockEmployees: Employee[] = [
   },
   {
     id: '4',
-    firstName: 'Иван',
-    lastName: 'Смирнов',
-    patronymic: 'Павлович',
-    initials: 'ИС',
+    firstName: 'Наталья',
+    lastName: 'Карпова',
+    patronymic: 'Игоревна',
+    initials: 'КН',
     avatarColor: '#82bad4',
     role: 'Дайвер',
     channels: ['Blocks', '[Команда]', 'Чат'],
-    nextMeetingDate: new Date(2026, 1, 22), // 22 февраля
+    nextMeetingDate: new Date(2026, 1, 16), // 16 февраля
     cycle: 'noCycle',
   },
   {
@@ -119,6 +119,18 @@ export const mockEmployees: Employee[] = [
     channels: ['Blocks', '[Команда]', 'Чат'],
     nextMeetingDate: new Date(2026, 1, 25), // 25 февраля
     cycle: 'noCycle',
+  },
+  {
+    id: '6',
+    firstName: 'Ольга',
+    lastName: 'Александрова',
+    patronymic: 'Николаевна',
+    initials: 'АО',
+    avatarColor: '#e59594',
+    role: 'Дайвер',
+    channels: ['Blocks', '[Команда]', 'Чат'],
+    nextMeetingDate: new Date(2026, 1, 16), // 16 февраля
+    cycle: 'weekly',
   },
 ];
 
