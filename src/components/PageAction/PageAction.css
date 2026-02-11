@@ -18,7 +18,8 @@
   transition: background-color 0.15s ease;
   box-sizing: border-box;
   user-select: none;
-  width: 100%;
+  /* Match widget width */
+  width: 300px;
 }
 
 .page-action:hover:not(.page-action--disabled) {
@@ -72,10 +73,9 @@
   line-height: 20px;
   letter-spacing: 0;
   color: var(--color-primitive-primary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
+  /* Allow wrapping inside fixed-width container */
+  white-space: normal;
+  word-break: break-word;
   text-align: left;
 }
 
@@ -88,10 +88,9 @@
   line-height: 18px;
   letter-spacing: 0.14px;
   color: var(--color-primitive-secondary, #676767);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
+  /* Allow description to span multiple lines */
+  white-space: normal;
+  word-break: break-word;
   text-align: left;
 }
 

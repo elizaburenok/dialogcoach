@@ -554,7 +554,7 @@ export function App() {
         {/* Page Action */}
         <PageAction
           title="Показать все активности"
-          description="Посмотреть загрузку"
+          description="Исполнитель — выбранный диалог-коуч"
           iconLeft={
             <svg
               width="24"
